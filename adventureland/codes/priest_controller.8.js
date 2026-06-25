@@ -111,6 +111,7 @@ load_code("auto_upgrade_module");
 load_code("gold_meter");
 load_code("party_module");
 load_code("inventory_module")
+load_code("death_module")
 
 
 // =====================================================
