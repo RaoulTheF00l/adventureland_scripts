@@ -21,8 +21,8 @@
 // =====================================================
 
 var CONFIG = {
-    monster: "goo",
-    loop_ms: 10,
+    monster: "bee",
+    loop_ms: 100,
 
     // MP potion safety.
     // This priest does NOT use HP potions.
@@ -89,7 +89,8 @@ var LEADER_NAME = "KrisAngel";
 
 var PARTY = [
     "KrisAngel",
-    "PopeRaoul"
+    "PopeRaoul",
+    "KrisRanger"
 ];
 
 
