@@ -46,7 +46,9 @@ var CONFIG = {
 
     // Selling behavior
     sell_list: [
-        "slime"
+        "slime",
+        "beewings",
+		"stinger"
     ],
 
     sell_unknown_items: false,
