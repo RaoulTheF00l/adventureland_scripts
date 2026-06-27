@@ -21,6 +21,7 @@ var PARTY = {
     default_monster: "bee"
 };
 
+
 // =====================================================
 // CHARACTER DATA
 // =====================================================
@@ -29,21 +30,43 @@ var CHARACTER_CONFIGS = {
     KrisAngel: {
         role: "mage",
         monster: "bee",
-        loop_ms: 100
+        loop_ms: 250,
+
+        auto_respawn: true,
+
+        use_hp_potions: true,
+        use_mp_potions: true,
+        hp_potion_use_at: 0.50,
+        mp_potion_use_at: 0.35
     },
 
     PopeRaoul: {
-        role: "mage",
+        role: "priest",
         monster: "bee",
-        loop_ms: 100
+        loop_ms: 250,
+
+        auto_respawn: true,
+
+        use_hp_potions: true,
+        use_mp_potions: true,
+        hp_potion_use_at: 0.60,
+        mp_potion_use_at: 0.40
     },
 
     KrisRanger: {
         role: "ranger",
         monster: "bee",
-        loop_ms: 100
+        loop_ms: 250,
+
+        auto_respawn: true,
+
+        use_hp_potions: true,
+        use_mp_potions: true,
+        hp_potion_use_at: 0.50,
+        mp_potion_use_at: 0.35
     }
 };
+
 
 // =====================================================
 // CONFIG ACCESS
@@ -58,7 +81,14 @@ function get_config_for_character(name) {
         return {
             role: "unknown",
             monster: PARTY.default_monster,
-            loop_ms: 250
+            loop_ms: 250,
+
+            auto_respawn: false,
+
+            use_hp_potions: false,
+            use_mp_potions: false,
+            hp_potion_use_at: 0.50,
+            mp_potion_use_at: 0.35
         };
     }
 

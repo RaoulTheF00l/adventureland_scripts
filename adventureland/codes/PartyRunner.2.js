@@ -25,7 +25,29 @@ if (typeof PARTY_RUNNER_INTERVAL !== "undefined" && PARTY_RUNNER_INTERVAL) {
 // LOAD MODULES
 // =====================================================
 
-load_code("Config");
+// Config.3.js = slot 3
+// Core.4.js   = slot 4
+//
+// require_code imports module code into this runner.
+// load_code switches/runs a code slot, which is not what we want here.
+
+load_code("Config"); // Config
+
+if (typeof get_config_for_character !== "function") {
+    set_message("Config missing");
+    game_log("Config did not require correctly. Check code slot 3.", "red");
+    throw new Error("Config module failed to require.");
+}
+
+load_code("Core"); // Core
+
+if (typeof core_handle_death !== "function") {
+    set_message("Core missing");
+    game_log("Core did not require correctly. Check code slot 4.", "red");
+    throw new Error("Core module failed to require.");
+}
+
+
 
 
 // =====================================================
@@ -64,10 +86,11 @@ var PARTY_RUNNER_INTERVAL = setInterval(party_runner_loop, CONFIG.loop_ms);
 // =====================================================
 
 function party_runner_loop() {
-    if (character.rip) {
-        set_message("Dead");
+    if (core_handle_death()) {
         return;
     }
+
+    core_use_potions();
 
     if (CONFIG.role === "mage") {
         runner_mage_placeholder();
