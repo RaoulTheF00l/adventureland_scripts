@@ -88,64 +88,22 @@ var CHARACTER_CONFIGS = {
         "computer", "stand0"
     ],
 
-    run_item_progression_in_town: true
+    run_item_progression_in_town: true,
 
-    },
+    auto_upgrade: true,
+    upgrade_scroll: "scroll0",
+    upgrade_gold_floor: 30000,
+    upgrade_max_level: 1,
+    upgrade_items: [
+        "staff",
+        "wstaff",
+        "coat",
+        "pants",
+        "shoes",
+        "helmet",
+        "gloves"
+],
 
-    PopeRaoul: {
-        role: "priest",
-        monster: "bee",
-        loop_ms: 250,
-
-        auto_respawn: true,
-
-        use_hp_potions: true,
-        use_mp_potions: true,
-        hp_potion_use_at: 0.60,
-        mp_potion_use_at: 0.40,
-
-        follow_distance: 90,
-        far_distance: 250,
-
-
-        attack_enabled: true,
-        attack_distance: 80,
-
-        auto_compound: true,
-        compound_scroll: "cscroll0",
-        compound_gold_floor: 30000,
-        compound_max_level: 1,
-        compound_items: [
-            "hpamulet"
-        ],
-
-        town_enabled: true,
-        free_slots_before_town: 6,
-
-        hp_potion: "hpot0",
-        mp_potion: "mpot0",
-        desired_hp_potions: 75,
-        desired_mp_potions: 200,
-        minimum_hp_potions: 10,
-        minimum_mp_potions: 15,
-
-        sell_unknown_items: false,
-
-        sell_list: [
-                "beewings"
-            ],
-
-    keep_items: [
-        "hpot0", "mpot0", "hpot1", "mpot1",
-        "scroll0", "scroll1", "scroll2",
-        "cscroll0", "cscroll1", "cscroll2",
-        "offering",
-        "xpbooster", "luckbooster", "goldbooster",
-        "computer", "stand0"
-    ],
-
-    run_item_progression_in_town: true
-    
     },
     
     KrisRanger: {
@@ -175,7 +133,9 @@ var CHARACTER_CONFIGS = {
         compound_gold_floor: 30000,
         compound_max_level: 1,
         compound_items: [
-            "hpamulet"
+            "hpamulet",
+            "hpbelt",
+            "ringsj"
         ],
 
             town_enabled: true,
@@ -203,8 +163,100 @@ var CHARACTER_CONFIGS = {
             "computer", "stand0"
         ],
 
-        run_item_progression_in_town: true
-    }
+        run_item_progression_in_town: true,
+
+        auto_upgrade: true,
+        upgrade_scroll: "scroll0",
+        upgrade_gold_floor: 30000,
+        upgrade_max_level: 1,
+        upgrade_items: [
+
+            "bow",
+            "wbow",
+            "coat",
+            "pants",
+            "shoes",
+            "helmet",
+            "gloves"
+],
+    },
+
+    PopeRaoul: {
+    
+        role: "priest",
+        monster: "bee",
+        loop_ms: 250,
+        auto_respawn: true,
+
+        use_hp_potions: true,
+        use_mp_potions: true,
+        hp_potion_use_at: 0.60,
+        mp_potion_use_at: 0.40,
+        
+        follow_distance: 90,
+        far_distance: 250,
+        
+        attack_enabled: true,
+        attack_distance: 80,
+        
+        heal_enabled: true,
+        self_heal_at: 0.90,
+        party_heal_at: 0.80,
+        emergency_heal_at: 0.55,
+        min_mp_to_heal: 80,
+        heal_distance: 80,
+        assist_when_idle: true,
+
+        auto_compound: true,
+        compound_scroll: "cscroll0",
+        compound_gold_floor: 30000,
+        compound_max_level: 1,
+        compound_items: [
+            "hpamulet",
+            "hpbelt",
+            "ringsj"
+        ],
+
+        town_enabled: true,
+        free_slots_before_town: 6,
+        
+        hp_potion: "hpot0",
+        mp_potion: "mpot0",
+        desired_hp_potions: 75,
+        desired_mp_potions: 200,
+        minimum_hp_potions: 10,
+        minimum_mp_potions: 15,
+        
+        sell_unknown_items: false,
+        sell_list: [
+            "beewings"
+        ],
+
+        keep_items: [
+            "hpot0", "mpot0", "hpot1", "mpot1",
+            "scroll0", "scroll1", "scroll2",
+            "cscroll0", "cscroll1", "cscroll2",
+            "offering",
+            "xpbooster", "luckbooster", "goldbooster",
+            "computer", "stand0"
+    ],
+
+    run_item_progression_in_town: true,
+
+    auto_upgrade: true,
+    upgrade_scroll: "scroll0",
+    upgrade_gold_floor: 30000,
+    upgrade_max_level: 1,
+    upgrade_items: [
+        "staff",
+        "wstaff",
+        "coat",
+        "pants",
+        "shoes",
+        "helmet",
+        "gloves"
+    ],
+},
 };
 
 // =====================================================
