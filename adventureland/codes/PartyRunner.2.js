@@ -25,72 +25,93 @@ if (typeof PARTY_RUNNER_INTERVAL !== "undefined" && PARTY_RUNNER_INTERVAL) {
 // LOAD MODULES
 // =====================================================
 
-// Config.3.js = slot 3
-// Core.4.js   = slot 4
-// Core.5.js   = slot 5
-//
-//
-// require_code imports module code into this runner.
-// load_code switches/runs a code slot, which is not what we want here.
-
-load_code("Config"); // Config
+load_code("Config");
 
 if (typeof get_config_for_character !== "function") {
     set_message("Config missing");
-    game_log("Config did not require correctly. Check code slot 3.", "red");
-    throw new Error("Config module failed to require.");
+    game_log("Config did not load correctly. Check Config.", "red");
+    throw new Error("Config module failed to load.");
 }
 
-load_code("Core"); // Core
+load_code("Core");
 
 if (typeof core_handle_death !== "function") {
     set_message("Core missing");
-    game_log("Core did not require correctly. Check code slot 4.", "red");
-    throw new Error("Core module failed to require.");
+    game_log("Core did not load correctly. Check Core.", "red");
+    throw new Error("Core module failed to load.");
 }
 
+load_code("Party");
 
-load_code("Party"); // Party
-
-if (typeof core_handle_death !== "function") {
-    set_message("Core missing");
-    game_log("Core did not require correctly. Check code slot 4.", "red");
-    throw new Error("Party module failed to require.");
+if (typeof party_maintain !== "function") {
+    set_message("Party missing");
+    game_log("Party did not load correctly. Check Party.", "red");
+    throw new Error("Party module failed to load.");
 }
 
+load_code("Movement");
 
-load_code("Movement"); // Movement
-
-if (typeof core_handle_death !== "function") {
-    set_message("Core missing");
-    game_log("Core did not require correctly. Check code slot 4.", "red");
-    throw new Error("Movement module failed to require.");
+if (typeof movement_update !== "function") {
+    set_message("Movement missing");
+    game_log("Movement did not load correctly. Check Movement.", "red");
+    throw new Error("Movement module failed to load.");
 }
 
-load_code("Combat"); // Combat
+load_code("Combat");
 
-if (typeof core_handle_death !== "function") {
-    set_message("Core missing");
-    game_log("Core did not require correctly. Check code slot 4.", "red");
-    throw new Error("Combat module failed to require.");
+if (typeof combat_leader_loop !== "function") {
+    set_message("Combat missing");
+    game_log("Combat did not load correctly. Check Combat.", "red");
+    throw new Error("Combat module failed to load.");
 }
 
-load_code("Inventory"); // Inventory
+load_code("Inventory");
 
 if (typeof inventory_loot !== "function") {
     set_message("Inventory missing");
-    game_log("Inventory did not require correctly. Check code slot 8.", "red");
-    throw new Error("Inventory module failed to require.");
+    game_log("Inventory did not load correctly. Check Inventory.", "red");
+    throw new Error("Inventory module failed to load.");
 }
 
-load_code("RolePriest"); // Role Priest
+load_code("RolePriest");
 
-if (typeof inventory_loot !== "function") {
-    set_message("Inventory missing");
-    game_log("Inventory did not require correctly. Check code slot 8.", "red");
-    throw new Error("Inventory module failed to require.");
+if (typeof role_priest_loop !== "function") {
+    set_message("RolePriest missing");
+    game_log("RolePriest did not load correctly. Check RolePriest.", "red");
+    throw new Error("RolePriest module failed to load.");
 }
 
+load_code("RoleRanger");
+
+if (typeof role_ranger_loop !== "function") {
+    set_message("RoleRanger missing");
+    game_log("RoleRanger did not load correctly. Check RoleRanger.", "red");
+    throw new Error("RoleRanger module failed to load.");
+}
+
+load_code("RoleMage");
+
+if (typeof role_mage_loop !== "function") {
+    set_message("RoleMage missing");
+    game_log("RoleMage did not load correctly. Check RoleMage.", "red");
+    throw new Error("RoleMage module failed to load.");
+}
+
+load_code("ItemProgression");
+
+if (typeof item_progression_has_work !== "function") {
+    set_message("ItemProgression missing");
+    game_log("ItemProgression did not load correctly. Check ItemProgression.", "red");
+    throw new Error("ItemProgression module failed to load.");
+}
+
+load_code("Town");
+
+if (typeof town_update !== "function") {
+    set_message("Town missing");
+    game_log("Town did not load correctly. Check Town.", "red");
+    throw new Error("Town module failed to load.");
+}
 
 
 // =====================================================
@@ -141,6 +162,10 @@ function party_runner_loop() {
 
     movement_update();
 
+    if (town_update()) {
+        return;
+    }
+
     if (CONFIG.role === "mage") {
         runner_mage_placeholder();
         return;
@@ -158,19 +183,13 @@ function party_runner_loop() {
 
     set_message("Unknown role");
 }
-
 // =====================================================
 // TEMPORARY ROLE PLACEHOLDERS
 // These prove role routing works 
 // =====================================================
 
 function runner_mage_placeholder() {
-    if (party_is_leader()) {
-        combat_leader_loop();
-        return;
-    }
-
-    combat_assist_leader();
+    role_mage_loop();
 }
 
 function runner_priest_placeholder() {
@@ -178,5 +197,5 @@ function runner_priest_placeholder() {
 }
 
 function runner_ranger_placeholder() {
-    combat_assist_leader();
+    role_ranger_loop();
 }

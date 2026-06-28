@@ -28,22 +28,60 @@ var PARTY = {
 
 var CHARACTER_CONFIGS = {
     KrisAngel: {
-        role: "mage",
-        monster: "bee",
-        loop_ms: 250,
+    role: "mage",
+    monster: "bee",
+    loop_ms: 250,
 
-        auto_respawn: true,
+    auto_respawn: true,
 
-        use_hp_potions: true,
-        use_mp_potions: true,
-        hp_potion_use_at: 0.50,
-        mp_potion_use_at: 0.35,
+    use_hp_potions: true,
+    use_mp_potions: true,
+    hp_potion_use_at: 0.50,
+    mp_potion_use_at: 0.35,
 
-        follow_distance: 80,
-        far_distance: 250,
+    follow_distance: 80,
+    far_distance: 250,
 
-        attack_enabled: true,
-        attack_distance: 90
+    attack_enabled: true,
+    attack_distance: 90,
+
+    move_to_monster_when_idle: true,
+    mage_use_specials: false,
+
+    auto_compound: true,
+    compound_scroll: "cscroll0",
+    compound_gold_floor: 30000,
+    compound_max_level: 1,
+    compound_items: [
+        "hpamulet",
+        "hpbelt",
+        "ringsj"
+    ],
+
+    town_enabled: true,
+    free_slots_before_town: 6,
+    
+    hp_potion: "hpot0",
+    mp_potion: "mpot0",
+    desired_hp_potions: 100,
+    desired_mp_potions: 150,
+    minimum_hp_potions: 10,
+    minimum_mp_potions: 10,
+    
+    sell_unknown_items: false,
+
+    sell_list: [
+            "honey"
+        ],
+
+    keep_items: [
+        "hpot0", "mpot0", "hpot1", "mpot1",
+        "scroll0", "scroll1", "scroll2",
+        "cscroll0", "cscroll1", "cscroll2",
+        "offering",
+        "xpbooster", "luckbooster", "goldbooster",
+        "computer", "stand0"
+    ],
     },
 
     PopeRaoul: {
@@ -63,9 +101,42 @@ var CHARACTER_CONFIGS = {
 
 
         attack_enabled: true,
-        attack_distance: 80
-    },
+        attack_distance: 80,
 
+        auto_compound: true,
+        compound_scroll: "cscroll0",
+        compound_gold_floor: 30000,
+        compound_max_level: 1,
+        compound_items: [
+            "hpamulet"
+        ],
+
+        town_enabled: true,
+        free_slots_before_town: 6,
+
+        hp_potion: "hpot0",
+        mp_potion: "mpot0",
+        desired_hp_potions: 75,
+        desired_mp_potions: 200,
+        minimum_hp_potions: 10,
+        minimum_mp_potions: 15,
+
+        sell_unknown_items: false,
+
+        sell_list: [
+                "honey"
+            ],
+
+    keep_items: [
+        "hpot0", "mpot0", "hpot1", "mpot1",
+        "scroll0", "scroll1", "scroll2",
+        "cscroll0", "cscroll1", "cscroll2",
+        "offering",
+        "xpbooster", "luckbooster", "goldbooster",
+        "computer", "stand0"
+    ],
+    },
+    
     KrisRanger: {
         role: "ranger",
         monster: "bee",
@@ -81,9 +152,45 @@ var CHARACTER_CONFIGS = {
         follow_distance: 110,
         far_distance: 280,
 
-
         attack_enabled: true,
-        attack_distance: 120
+        attack_distance: 120,
+
+        use_supershot: false,
+        supershot_min_mp: 120,
+        supershot_only_above_hp: 0.30,
+
+        auto_compound: true,
+        compound_scroll: "cscroll0",
+        compound_gold_floor: 30000,
+        compound_max_level: 1,
+        compound_items: [
+            "hpamulet"
+        ],
+
+            town_enabled: true,
+            free_slots_before_town: 6,
+    
+            hp_potion: "hpot0",
+            mp_potion: "mpot0",
+            desired_hp_potions: 100,
+            desired_mp_potions: 150,
+            minimum_hp_potions: 10,
+            minimum_mp_potions: 10,
+    
+            sell_unknown_items: false,
+
+            sell_list: [
+                "honey"
+            ],
+
+        keep_items: [
+            "hpot0", "mpot0", "hpot1", "mpot1",
+            "scroll0", "scroll1", "scroll2",
+            "cscroll0", "cscroll1", "cscroll2",
+            "offering",
+            "xpbooster", "luckbooster", "goldbooster",
+            "computer", "stand0"
+        ],
     }
 };
 
