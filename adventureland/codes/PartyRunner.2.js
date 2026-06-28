@@ -29,6 +29,7 @@ if (typeof PARTY_RUNNER_INTERVAL !== "undefined" && PARTY_RUNNER_INTERVAL) {
 // Core.4.js   = slot 4
 // Core.5.js   = slot 5
 //
+//
 // require_code imports module code into this runner.
 // load_code switches/runs a code slot, which is not what we want here.
 
@@ -54,7 +55,40 @@ load_code("Party"); // Party
 if (typeof core_handle_death !== "function") {
     set_message("Core missing");
     game_log("Core did not require correctly. Check code slot 4.", "red");
-    throw new Error("Core module failed to require.");
+    throw new Error("Party module failed to require.");
+}
+
+
+load_code("Movement"); // Movement
+
+if (typeof core_handle_death !== "function") {
+    set_message("Core missing");
+    game_log("Core did not require correctly. Check code slot 4.", "red");
+    throw new Error("Movement module failed to require.");
+}
+
+load_code("Combat"); // Combat
+
+if (typeof core_handle_death !== "function") {
+    set_message("Core missing");
+    game_log("Core did not require correctly. Check code slot 4.", "red");
+    throw new Error("Combat module failed to require.");
+}
+
+load_code("Inventory"); // Inventory
+
+if (typeof inventory_loot !== "function") {
+    set_message("Inventory missing");
+    game_log("Inventory did not require correctly. Check code slot 8.", "red");
+    throw new Error("Inventory module failed to require.");
+}
+
+load_code("RolePriest"); // Role Priest
+
+if (typeof inventory_loot !== "function") {
+    set_message("Inventory missing");
+    game_log("Inventory did not require correctly. Check code slot 8.", "red");
+    throw new Error("Inventory module failed to require.");
 }
 
 
@@ -93,14 +127,19 @@ var PARTY_RUNNER_INTERVAL = setInterval(party_runner_loop, CONFIG.loop_ms);
 // =====================================================
 // MAIN LOOP
 // =====================================================
+
 function party_runner_loop() {
     if (core_handle_death()) {
         return;
     }
 
+    inventory_loot();
+
     core_use_potions();
 
     party_maintain();
+
+    movement_update();
 
     if (CONFIG.role === "mage") {
         runner_mage_placeholder();
@@ -126,13 +165,18 @@ function party_runner_loop() {
 // =====================================================
 
 function runner_mage_placeholder() {
-    set_message("Mage ready");
+    if (party_is_leader()) {
+        combat_leader_loop();
+        return;
+    }
+
+    combat_assist_leader();
 }
 
 function runner_priest_placeholder() {
-    set_message("Priest ready");
+    role_priest_loop();
 }
 
 function runner_ranger_placeholder() {
-    set_message("Ranger ready");
+    combat_assist_leader();
 }

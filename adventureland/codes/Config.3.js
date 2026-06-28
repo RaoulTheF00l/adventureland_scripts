@@ -37,7 +37,13 @@ var CHARACTER_CONFIGS = {
         use_hp_potions: true,
         use_mp_potions: true,
         hp_potion_use_at: 0.50,
-        mp_potion_use_at: 0.35
+        mp_potion_use_at: 0.35,
+
+        follow_distance: 80,
+        far_distance: 250,
+
+        attack_enabled: true,
+        attack_distance: 90
     },
 
     PopeRaoul: {
@@ -50,7 +56,14 @@ var CHARACTER_CONFIGS = {
         use_hp_potions: true,
         use_mp_potions: true,
         hp_potion_use_at: 0.60,
-        mp_potion_use_at: 0.40
+        mp_potion_use_at: 0.40,
+
+        follow_distance: 90,
+        far_distance: 250,
+
+
+        attack_enabled: true,
+        attack_distance: 80
     },
 
     KrisRanger: {
@@ -63,10 +76,16 @@ var CHARACTER_CONFIGS = {
         use_hp_potions: true,
         use_mp_potions: true,
         hp_potion_use_at: 0.50,
-        mp_potion_use_at: 0.35
+        mp_potion_use_at: 0.35,
+
+        follow_distance: 110,
+        far_distance: 280,
+
+
+        attack_enabled: true,
+        attack_distance: 120
     }
 };
-
 
 // =====================================================
 // CONFIG ACCESS
