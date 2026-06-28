@@ -57,45 +57,22 @@ if (typeof movement_update !== "function") {
     throw new Error("Movement module failed to load.");
 }
 
-load_code("Combat");
+load_code("Town");
 
-if (typeof combat_leader_loop !== "function") {
-    set_message("Combat missing");
-    game_log("Combat did not load correctly. Check Combat.", "red");
-    throw new Error("Combat module failed to load.");
+if (typeof town_update !== "function") {
+    set_message("Town missing");
+    game_log("Town did not load correctly. Check Town.", "red");
+    throw new Error("Town module failed to load.");
 }
 
-load_code("Inventory");
+load_code("Status");
 
-if (typeof inventory_loot !== "function") {
-    set_message("Inventory missing");
-    game_log("Inventory did not load correctly. Check Inventory.", "red");
-    throw new Error("Inventory module failed to load.");
+if (typeof status_update !== "function") {
+    set_message("Status missing");
+    game_log("Status did not load correctly. Check Status.", "red");
+    throw new Error("Status module failed to load.");
 }
 
-load_code("RolePriest");
-
-if (typeof role_priest_loop !== "function") {
-    set_message("RolePriest missing");
-    game_log("RolePriest did not load correctly. Check RolePriest.", "red");
-    throw new Error("RolePriest module failed to load.");
-}
-
-load_code("RoleRanger");
-
-if (typeof role_ranger_loop !== "function") {
-    set_message("RoleRanger missing");
-    game_log("RoleRanger did not load correctly. Check RoleRanger.", "red");
-    throw new Error("RoleRanger module failed to load.");
-}
-
-load_code("RoleMage");
-
-if (typeof role_mage_loop !== "function") {
-    set_message("RoleMage missing");
-    game_log("RoleMage did not load correctly. Check RoleMage.", "red");
-    throw new Error("RoleMage module failed to load.");
-}
 
 load_code("ItemProgression");
 
@@ -105,12 +82,49 @@ if (typeof item_progression_has_work !== "function") {
     throw new Error("ItemProgression module failed to load.");
 }
 
-load_code("Town");
 
-if (typeof town_update !== "function") {
-    set_message("Town missing");
-    game_log("Town did not load correctly. Check Town.", "red");
-    throw new Error("Town module failed to load.");
+load_code("Combat");
+
+if (typeof combat_leader_loop !== "function") {
+    set_message("Combat missing");
+    game_log("Combat did not load correctly. Check Combat.", "red");
+    throw new Error("Combat module failed to load.");
+}
+
+
+load_code("Inventory");
+
+if (typeof inventory_loot !== "function") {
+    set_message("Inventory missing");
+    game_log("Inventory did not load correctly. Check Inventory.", "red");
+    throw new Error("Inventory module failed to load.");
+}
+
+
+load_code("RolePriest");
+
+if (typeof role_priest_loop !== "function") {
+    set_message("RolePriest missing");
+    game_log("RolePriest did not load correctly. Check RolePriest.", "red");
+    throw new Error("RolePriest module failed to load.");
+}
+
+
+load_code("RoleRanger");
+
+if (typeof role_ranger_loop !== "function") {
+    set_message("RoleRanger missing");
+    game_log("RoleRanger did not load correctly. Check RoleRanger.", "red");
+    throw new Error("RoleRanger module failed to load.");
+}
+
+
+load_code("RoleMage");
+
+if (typeof role_mage_loop !== "function") {
+    set_message("RoleMage missing");
+    game_log("RoleMage did not load correctly. Check RoleMage.", "red");
+    throw new Error("RoleMage module failed to load.");
 }
 
 
@@ -151,16 +165,16 @@ var PARTY_RUNNER_INTERVAL = setInterval(party_runner_loop, CONFIG.loop_ms);
 
 function party_runner_loop() {
     if (core_handle_death()) {
+        status_update();
         return;
     }
 
     inventory_loot();
-
     core_use_potions();
-
     party_maintain();
-
     movement_update();
+
+    status_update();
 
     if (town_update()) {
         return;
