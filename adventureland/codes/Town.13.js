@@ -42,6 +42,10 @@ function town_update() {
         return true;
     }
 
+    if (town_recently_finished()) {
+        return false;
+    }
+
     if (TOWN_STATE.requested) {
         town_start_run("party request");
         return true;
@@ -113,6 +117,17 @@ function town_needs_item_progression() {
     return item_progression_has_work();
 }
 
+function town_recently_finished() {
+    if (!TOWN_STATE.last_run) {
+        return false;
+    }
+
+    var cooldown = PARTY.town_run_cooldown_ms || 15000;
+    var now = Date.now();
+
+    return now - TOWN_STATE.last_run < cooldown;
+}
+
 // =====================================================
 // PARTY-WIDE TOWN REQUEST
 // If one party member needs town, everyone should go.
@@ -120,8 +135,9 @@ function town_needs_item_progression() {
 
 function town_broadcast_request(reason) {
     var now = Date.now();
+    var cooldown = PARTY.town_request_cooldown_ms || 10000;
 
-    if (TOWN_STATE.request_sent && now - TOWN_STATE.last_request < 10000) {
+    if (TOWN_STATE.request_sent && now - TOWN_STATE.last_request < cooldown) {
         return;
     }
 
@@ -204,11 +220,17 @@ async function town_run() {
 
         await town_smart_move("potions");
 
+        set_message("Town wait");
+        await town_delay(PARTY.town_wait_for_party_ms || 1500);
+
         await town_sell_loot();
 
         await town_buy_potions();
 
-        if (typeof item_progression_run_once === "function") {
+        if (
+            CONFIG.run_item_progression_in_town === true &&
+            typeof item_progression_run_once === "function"
+        ) {
             await item_progression_run_once();
         }
 

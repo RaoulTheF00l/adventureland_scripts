@@ -18,9 +18,14 @@ var PARTY = {
         "KrisRanger"
     ],
 
-    default_monster: "bee"
-};
+    default_monster: "bee",
 
+    party_check_ms: 5000,
+
+    town_request_cooldown_ms: 10000,
+    town_run_cooldown_ms: 15000,
+    town_wait_for_party_ms: 1500
+};
 
 // =====================================================
 // CHARACTER DATA
@@ -71,7 +76,7 @@ var CHARACTER_CONFIGS = {
     sell_unknown_items: false,
 
     sell_list: [
-            "honey"
+            "beewings"
         ],
 
     keep_items: [
@@ -82,6 +87,9 @@ var CHARACTER_CONFIGS = {
         "xpbooster", "luckbooster", "goldbooster",
         "computer", "stand0"
     ],
+
+    run_item_progression_in_town: true
+
     },
 
     PopeRaoul: {
@@ -124,7 +132,7 @@ var CHARACTER_CONFIGS = {
         sell_unknown_items: false,
 
         sell_list: [
-                "honey"
+                "beewings"
             ],
 
     keep_items: [
@@ -135,6 +143,9 @@ var CHARACTER_CONFIGS = {
         "xpbooster", "luckbooster", "goldbooster",
         "computer", "stand0"
     ],
+
+    run_item_progression_in_town: true
+    
     },
     
     KrisRanger: {
@@ -180,7 +191,7 @@ var CHARACTER_CONFIGS = {
             sell_unknown_items: false,
 
             sell_list: [
-                "honey"
+                "beewings"
             ],
 
         keep_items: [
@@ -191,6 +202,8 @@ var CHARACTER_CONFIGS = {
             "xpbooster", "luckbooster", "goldbooster",
             "computer", "stand0"
         ],
+
+        run_item_progression_in_town: true
     }
 };
 
