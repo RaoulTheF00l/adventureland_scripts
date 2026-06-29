@@ -236,7 +236,6 @@ var CHARACTER_CONFIGS = {
         sell_list: [
             "beewings",
             "stinger",
-            "hpamulet",
         ],
 
         keep_items: [
@@ -263,6 +262,85 @@ var CHARACTER_CONFIGS = {
         "helmet",
         "gloves"
     ],
+},
+
+MerchantNooh: {
+    role: "merchant",
+
+    monster: "bee",
+    loop_ms: 250,
+
+    auto_respawn: true,
+
+    use_hp_potions: true,
+    use_mp_potions: true,
+    hp_potion_use_at: 0.50,
+    mp_potion_use_at: 0.35,
+
+    // Merchant should not use the normal party town system.
+    // He has his own merchant town run.
+    town_enabled: true,
+
+    // Positioning
+    follow_distance: 160,
+    far_distance: 350,
+
+    // Merchant support
+    merchant_support_enabled: true,
+    merchant_name: "MerchantNooh",
+    merchant_transfer_distance: 250,
+    merchant_request_cooldown_ms: 5000,
+    merchant_supply_cooldown_ms: 4000,
+
+    // Merchant inventory behavior
+    merchant_free_slots_before_town: 8,
+
+    hp_potion: "hpot0",
+    mp_potion: "mpot0",
+
+    desired_hp_potions: 500,
+    desired_mp_potions: 800,
+
+    minimum_hp_potions: 100,
+    minimum_mp_potions: 150,
+
+    merchant_send_hp_amount: 50,
+    merchant_send_mp_amount: 75,
+
+    // Merchant skill
+    use_mluck: true,
+
+    // Selling
+    sell_unknown_items: false,
+    sell_list: [
+        "beewings",
+        "stinger"
+    ],
+
+    keep_items: [
+        "hpot0",
+        "mpot0",
+        "hpot1",
+        "mpot1",
+        "scroll0",
+        "scroll1",
+        "scroll2",
+        "cscroll0",
+        "cscroll1",
+        "cscroll2",
+        "offering",
+        "xpbooster",
+        "luckbooster",
+        "goldbooster",
+        "computer",
+        "stand0"
+    ],
+
+    auto_compound: false,
+    auto_upgrade: false,
+
+    compound_items: [],
+    upgrade_items: []
 },
 };
 
