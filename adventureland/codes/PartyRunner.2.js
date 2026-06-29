@@ -127,6 +127,14 @@ if (typeof role_mage_loop !== "function") {
     throw new Error("RoleMage module failed to load.");
 }
 
+load_code("RoleMerchant");
+
+if (typeof role_merchant_loop !== "function") {
+    set_message("RoleMerchant missing");
+    game_log("RoleMerchant did not load correctly. Check RoleMerchant.", "red");
+    throw new Error("RoleMerchant module failed to load.");
+}
+
 
 // =====================================================
 // ACTIVE CHARACTER CONFIG
@@ -165,7 +173,6 @@ var PARTY_RUNNER_INTERVAL = setInterval(party_runner_loop, CONFIG.loop_ms);
 
 function party_runner_loop() {
     if (core_handle_death()) {
-        status_update();
         return;
     }
 
@@ -174,7 +181,7 @@ function party_runner_loop() {
     party_maintain();
     movement_update();
 
-    status_update();
+    merchant_support_update();
 
     if (town_update()) {
         return;
@@ -195,8 +202,15 @@ function party_runner_loop() {
         return;
     }
 
+    if (CONFIG.role === "merchant") {
+        role_merchant_loop();
+        return;
+    }
+
     set_message("Unknown role");
 }
+
+
 // =====================================================
 // TEMPORARY ROLE PLACEHOLDERS
 // These prove role routing works 

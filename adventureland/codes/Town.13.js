@@ -38,6 +38,10 @@ function town_update() {
         return false;
     }
 
+    if (CONFIG.merchant_support_enabled === true && CONFIG.role !== "merchant") {
+        return false;
+    }
+
     if (TOWN_STATE.busy) {
         return true;
     }
@@ -182,15 +186,18 @@ function on_cm(name, data) {
         return;
     }
 
+    if (typeof merchant_support_handle_cm === "function") {
+        if (merchant_support_handle_cm(name, data)) {
+            return;
+        }
+    }
+
     if (data.type === "town_request") {
         TOWN_STATE.requested = true;
         TOWN_STATE.reason = data.reason || "party request";
 
         game_log(
-            "Town request from " +
-            name +
-            ": " +
-            TOWN_STATE.reason,
+            "Town request from " + name + ": " + TOWN_STATE.reason,
             "cyan"
         );
     }

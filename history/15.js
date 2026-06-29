@@ -21,8 +21,7 @@ var BOOT = {
     characters: [
         "KrisAngel",
         "PopeRaoul",
-        "KrisRanger",
-		"MerchantNooh"
+        "KrisRanger"
     ]
 };
 

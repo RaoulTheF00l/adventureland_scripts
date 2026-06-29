@@ -15,7 +15,8 @@ var PARTY = {
     members: [
         "KrisAngel",
         "PopeRaoul",
-        "KrisRanger"
+        "KrisRanger",
+        "MerchantNooh"
     ],
 
     default_monster: "bee",
@@ -56,7 +57,7 @@ var CHARACTER_CONFIGS = {
     auto_compound: true,
     compound_scroll: "cscroll0",
     compound_gold_floor: 30000,
-    compound_max_level: 1,
+    compound_max_level: 3,
     compound_items: [
         "hpamulet",
         "hpbelt",
@@ -75,10 +76,12 @@ var CHARACTER_CONFIGS = {
     
     sell_unknown_items: false,
 
-    sell_list: [
-            "beewings"
-        ],
-
+                sell_list: [
+                "beewings",
+                "stinger",
+                "hpamulet",
+            ],
+            
     keep_items: [
         "hpot0", "mpot0", "hpot1", "mpot1",
         "scroll0", "scroll1", "scroll2",
@@ -93,7 +96,7 @@ var CHARACTER_CONFIGS = {
     auto_upgrade: true,
     upgrade_scroll: "scroll0",
     upgrade_gold_floor: 30000,
-    upgrade_max_level: 1,
+    upgrade_max_level: 3,
     upgrade_items: [
         "staff",
         "wstaff",
@@ -151,7 +154,9 @@ var CHARACTER_CONFIGS = {
             sell_unknown_items: false,
 
             sell_list: [
-                "beewings"
+                "beewings",
+                "stinger",
+                "hpamulet",
             ],
 
         keep_items: [
@@ -168,7 +173,7 @@ var CHARACTER_CONFIGS = {
         auto_upgrade: true,
         upgrade_scroll: "scroll0",
         upgrade_gold_floor: 30000,
-        upgrade_max_level: 1,
+        upgrade_max_level: 3,
         upgrade_items: [
 
             "bow",
@@ -229,7 +234,9 @@ var CHARACTER_CONFIGS = {
         
         sell_unknown_items: false,
         sell_list: [
-            "beewings"
+            "beewings",
+            "stinger",
+            "hpamulet",
         ],
 
         keep_items: [
@@ -246,7 +253,7 @@ var CHARACTER_CONFIGS = {
     auto_upgrade: true,
     upgrade_scroll: "scroll0",
     upgrade_gold_floor: 30000,
-    upgrade_max_level: 1,
+    upgrade_max_level: 3,
     upgrade_items: [
         "staff",
         "wstaff",
