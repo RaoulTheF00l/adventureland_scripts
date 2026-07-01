@@ -10,16 +10,16 @@
 // =====================================================
 
 var PARTY = {
-    leader: "KrisAngel",
+    leader: "MageRao",
 
     members: [
-        "KrisAngel",
-        "PopeRaoul",
-        "KrisRanger",
-        "MerchantNooh"
+        "MageRao",
+        "PriestRao",
+        "RangerRao",
+        "MerchantRao"
     ],
 
-    default_monster: "bee",
+    default_monster: "goo",
 
     party_check_ms: 5000,
 
@@ -33,10 +33,10 @@ var PARTY = {
 // =====================================================
 
 var CHARACTER_CONFIGS = {
-    KrisAngel: {
+    MageRao: {
     role: "mage",
-    monster: "bee",
-    loop_ms: 250,
+    monster: "goo",
+    loop_ms: 50,
 
     auto_respawn: true,
 
@@ -104,15 +104,17 @@ var CHARACTER_CONFIGS = {
         "pants",
         "shoes",
         "helmet",
-        "gloves"
+        "gloves",
+        "wcap",
+        "wshoes"
 ],
 
     },
     
-    KrisRanger: {
+    RangerRao: {
         role: "ranger",
-        monster: "bee",
-        loop_ms: 250,
+        monster: "goo",
+        loop_ms: 100,
 
         auto_respawn: true,
 
@@ -182,15 +184,17 @@ var CHARACTER_CONFIGS = {
             "pants",
             "shoes",
             "helmet",
-            "gloves"
+            "gloves",
+            "wcap",
+            "wshoes"
 ],
     },
 
-    PopeRaoul: {
+    PriestRao: {
     
         role: "priest",
-        monster: "bee",
-        loop_ms: 250,
+        monster: "goo",
+        loop_ms: 50,
         auto_respawn: true,
 
         use_hp_potions: true,
@@ -260,14 +264,16 @@ var CHARACTER_CONFIGS = {
         "pants",
         "shoes",
         "helmet",
-        "gloves"
+        "gloves",
+        "wcap",
+        "wshoes"
     ],
 },
 
-MerchantNooh: {
+MerchantRao: {
     role: "merchant",
 
-    monster: "bee",
+    monster: "goo",
     loop_ms: 250,
 
     auto_respawn: true,

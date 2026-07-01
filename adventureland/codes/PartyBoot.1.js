@@ -16,13 +16,13 @@
 var BOOT = {
     runner_code: "PartyRunner",
 
-    leader: "KrisAngel",
+    leader: "MageRao",
 
     characters: [
-        "KrisAngel",
-        "PopeRaoul",
-        "KrisRanger",
-		"MerchantNooh"
+        "MageRao",
+        "PriestRao",
+        "RangerRao",
+		"MerchantRao"
     ]
 };
 
