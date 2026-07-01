@@ -64,6 +64,13 @@ var CHARACTER_CONFIGS = {
         "ringsj"
     ],
 
+    // Merchant support
+    merchant_support_enabled: true,
+    merchant_name: "MerchantRao",
+    merchant_transfer_distance: 250,
+    merchant_request_cooldown_ms: 5000,
+    merchant_supply_cooldown_ms: 4000,
+
     town_enabled: true,
     free_slots_before_town: 6,
     
@@ -169,6 +176,14 @@ var CHARACTER_CONFIGS = {
             "xpbooster", "luckbooster", "goldbooster",
             "computer", "stand0"
         ],
+		
+		  // Merchant support
+    	merchant_support_enabled: true,
+    	merchant_name: "MerchantRao",
+    	merchant_transfer_distance: 250,
+    	merchant_request_cooldown_ms: 5000,
+    	merchant_supply_cooldown_ms: 4000,
+
 
         run_item_progression_in_town: true,
 
@@ -225,6 +240,14 @@ var CHARACTER_CONFIGS = {
             "hpbelt",
             "ringsj"
         ],
+		
+		    // Merchant support
+    	merchant_support_enabled: true,
+    	merchant_name: "MerchantRao",
+    	merchant_transfer_distance: 250,
+    	merchant_request_cooldown_ms: 5000,
+    	merchant_supply_cooldown_ms: 4000,
+
 
         town_enabled: true,
         free_slots_before_town: 6,
@@ -293,7 +316,7 @@ MerchantRao: {
 
     // Merchant support
     merchant_support_enabled: true,
-    merchant_name: "MerchantNooh",
+    merchant_name: "MerchantRao",
     merchant_transfer_distance: 250,
     merchant_request_cooldown_ms: 5000,
     merchant_supply_cooldown_ms: 4000,
